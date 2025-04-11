@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Image, Text } from "react-native";
 import { images } from "@/constants/images";
 import useFetch from "@/services/useFetch";
-import { fetchMovies } from "@/services/api";
+import { fetchMovies, fetchMovieDetails } from "@/services/api";
 import MovieCard from "@/components/MovieCard";
 import { icons } from "@/constants/icons";
 import SearchBar from "@/components/SearchBar";
-import { updateSearchCount } from "@/services/appwrite";
+import { updateDetailsCount } from "@/services/appwrite";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,12 +23,22 @@ const Search = () => {
     const timeoutId = setTimeout(async () => {
       if (searchQuery) {
         await loadMovies();
-        if (movies && movies.length > 0 && movies?.[0])
-          await updateSearchCount(searchQuery, movies[0]);
+        // When a movie is found in search, we'll fetch its details and update its view count
+        if (movies && movies.length > 0 && movies[0]) {
+          try {
+            const movieDetails = await fetchMovieDetails(
+              movies[0].id.toString()
+            );
+            await updateDetailsCount(movies[0].id, movieDetails);
+          } catch (error) {
+            console.error("Error updating movie details count:", error);
+          }
+        }
       } else {
         reset();
       }
     }, 577);
+
     return () => clearTimeout(timeoutId);
   }, [searchQuery]);
 
@@ -59,8 +69,11 @@ const Search = () => {
         }}
         ListHeaderComponent={
           <>
-            <View className="w-full flex-row justify-center mt-20 items-center">
-              <Image source={icons.logo} className="w-12 h-10" />
+            <View className="w-full flex-row justify-center  items-center">
+              <Image
+                source={icons.logo}
+                className="w-[70%] h-20 mt-20 mb-5 mx-auto"
+              />
             </View>
             <View className="my-5">
               <SearchBar
