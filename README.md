@@ -3,7 +3,7 @@
 <div align="center">
   <img src="assets/icons/logo.png" alt="Logo de la App de Películas" width="200"/>
   <br />
-  <h3>Una aplicación moderna para descubrir películas construida con React Native y Expo</h3>
+  <h3>Una aplicación moderna para descubrir películas construida con React Native y Expo,  basada en un curso de JM Mastery</h3>
   
   [![React Native](https://img.shields.io/badge/React%20Native-0.76-blue.svg?style=flat-square&logo=react)](https://reactnative.dev/)
   [![Expo](https://img.shields.io/badge/Expo-52.0-black.svg?style=flat-square&logo=expo)](https://expo.dev/)
@@ -21,6 +21,8 @@
 - **Diseño Responsivo**: Funciona perfectamente en diferentes tamaños de dispositivos
 - **Interfaz Moderna**: Interfaz de usuario limpia e intuitiva con Tailwind CSS
 - **Actualizaciones en Tiempo Real**: Mantente al día con la información más reciente de películas
+- **Autenticación**: Sistema de autenticación con registro y inicio de sesión
+- **Gestión de Sesiones**: Manejo de sesiones de usuario para una experiencia personalizada
 
 ## Capturas de Pantalla
 
@@ -30,11 +32,13 @@
       <td align="center"><strong>Pantalla Principal</strong></td>
       <td align="center"><strong>Detalles de Película</strong></td>
       <td align="center"><strong>Búsqueda</strong></td>
+      <td align="center"><strong>Registro</strong></td>
     </tr>
     <tr>
-      <td><img src="https://via.placeholder.com/200x400" width="200"/></td>
-      <td><img src="https://via.placeholder.com/200x400" width="200"/></td>
-      <td><img src="https://via.placeholder.com/200x400" width="200"/></td>
+      <td><img src="assets/images/readme/app_inicio.webp" width="200"/></td>ß
+      <td><img src="assets/images/readme/app_detalles.webp" width="200"/></td>
+      <td><img src="assets/images/readme/app_busqueda.webp" width="200"/></td>
+      <td><img src="assets/images/readme/app_registro.webp" width="200"/></td>
     </tr>
   </table>
 </div>
@@ -60,12 +64,14 @@
 ### Instalación
 
 1. Clonar el repositorio
+
    ```bash
    git clone https://github.com/tuusuario/movies-react-native.git
    cd movies-react-native
    ```
 
 2. Instalar dependencias
+
    ```bash
    npm install
    # o
@@ -73,6 +79,7 @@
    ```
 
 3. Crear un archivo `.env` en el directorio raíz con tus claves API
+
    ```
    EXPO_PUBLIC_MOVIE_API_KEY=tu_clave_api_tmdb
    EXPO_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
@@ -118,6 +125,7 @@ Esta aplicación utiliza la [API de The Movie Database (TMDB)](https://www.themo
 ## Analíticas y Backend
 
 La aplicación utiliza [Appwrite](https://appwrite.io/) para servicios de backend, incluyendo:
+
 - Seguimiento de películas populares basado en conteo de vistas
 - Almacenamiento de preferencias de usuario
 - Analíticas para interacciones de usuario
@@ -132,13 +140,6 @@ La aplicación utiliza [Appwrite](https://appwrite.io/) para servicios de backen
 4. Haz push a la rama (`git push origin feature/caracteristica-increible`)
 5. Abre un Pull Request
 
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo LICENSE para más detalles.
-
 ## Agradecimientos
 
-- [TMDB](https://www.themoviedb.org/) por proporcionar la API de datos de películas
-- [Expo](https://expo.dev/) por la increíble plataforma de desarrollo para React Native
-- [Appwrite](https://appwrite.io/) por los servicios de backend
-- Todas las bibliotecas de código abierto utilizadas en este proyecto
+- [JM_Mastery](https://jsmastery.pro/) Por el curso de React Native, y su gran labor de enseñanza.
